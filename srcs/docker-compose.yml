@@ -1,0 +1,75 @@
+services:
+  nginx:
+    build: requirements/nginx/.
+    container_name: nginx
+    image: nginx:ojebbari
+    depends_on:
+      - wordpress
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - inception
+    restart: always
+
+  wordpress:
+    build: requirements/wordpress/.
+    container_name: wordpress
+    image: wordpress:ojebbari
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress_data:/var/www/html
+    env_file:
+      - .env
+    secrets:
+      - db_password
+      - wp_root_password
+      - wp_password
+    networks:
+      - inception
+    restart: always
+
+  mariadb:
+    build: requirements/mariadb/.
+    container_name: mariadb
+    image: mariadb:ojebbari
+    volumes:
+      - mariadb:/var/lib/mysql
+    env_file:
+      - .env
+    secrets:
+      - db_password
+      - db_root_password
+    networks:
+      - inception
+    restart: always
+
+networks:
+  inception:
+    driver: bridge
+
+volumes:
+  wordpress_data:
+    driver: local
+    driver_opts:
+      device: /home/ojebbari/data/wordpress
+      o: bind
+      type: none
+  mariadb:
+    driver: local
+    driver_opts:
+      device: /home/ojebbari/data/mariadb
+      o: bind
+      type: none
+
+secrets:
+  db_password:
+    file: ./../secrets/db_password.txt
+  db_root_password:
+    file: ./../secrets/db_root_password.txt
+  wp_password:
+    file: ./../secrets/wp_password.txt
+  wp_root_password:
+    file: ./../secrets/wp_root_password.txt
