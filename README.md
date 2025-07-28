@@ -19,6 +19,7 @@ The objective is to set up a secure, containerized web infrastructure composed o
 │   ├── db_password.txt
 │   ├── db_root_password.txt
 │   └── wp_admin_password.txt
+│   └── wp_password.txt
 └── srcs/
     ├── .env
     ├── docker-compose.yml # Container orchestration
