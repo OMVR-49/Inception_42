@@ -40,7 +40,7 @@ The objective is to set up a secure, containerized web infrastructure composed o
 ```
 ---
 
-## ⚙️ Technologies Used
+## ⚙️ Technologies Used and 🛠️ features 
 - Host Environment: Virtual Machine
 - Docker & Docker Compose
 - Base Images: Debian (penultimate stable version)
@@ -50,11 +50,6 @@ The objective is to set up a secure, containerized web infrastructure composed o
 - MariaDB
 - OpenSSL (for HTTPS)
 - Environment Variables with `.env` file support
-
----
-
-## 🛠️ Features
-
 - Fully containerized infrastructure with Docker Compose
 - NGINX as the **sole entry point** via HTTPS (port 443 only)
 - WordPress container using `php-fpm` (no web server inside)
