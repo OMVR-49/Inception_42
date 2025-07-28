@@ -41,9 +41,10 @@ The objective is to set up a secure, containerized web infrastructure composed o
 ---
 
 ## ⚙️ Technologies Used
-
+- Host Environment: Virtual Machine
 - Docker & Docker Compose
-- Debian:bullseye
+- Base Images: Debian (penultimate stable version)
+- Orchestration: Makefile-driven build process
 - NGINX with TLSv1.2/1.3
 - WordPress (PHP-FPM only)
 - MariaDB
@@ -88,10 +89,4 @@ The objective is to set up a secure, containerized web infrastructure composed o
 | **TLS Protocols**    | ✅ Implemented        | TLSv1.2/TLSv1.3 only on NGINX |
 | **Auto-recovery**    | ✅ Implemented        | Containers restart automatically on failure |
 
-### Base Technologies
-- **Host Environment**: Virtual Machine
-- **Containerization**: Docker + Docker Compose
-- **Base Images**: Debian (penultimate stable version)
-- **Orchestration**: Makefile-driven build process
-- **Secret Management**: Docker secrets with environment variables
 
