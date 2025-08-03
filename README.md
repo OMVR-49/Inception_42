@@ -80,7 +80,7 @@ The objective is to set up a secure, containerized web infrastructure composed o
 | **Networking**       | 🚫 Prohibited         | No `--links` or `network:host` |
 | **Process Management** | 🚫 Prohibited         | No infinite-loop processes (`tail -f`, `sleep infinity`, etc.) |
 | **Container Init**   | ✅ Implemented        | PID 1 best practices for proper initialization |
-| **DNS Configuration** | ✅ Implemented        | Domain name routing (`yourlogin.42.fr`) |
+| **DNS Configuration** | ✅ Implemented        | Domain name routing (`ojebbari.42.fr`) |
 | **Security**         | ✅ Implemented        | No credentials in Dockerfiles or version control |
 | **TLS Protocols**    | ✅ Implemented        | TLSv1.2/TLSv1.3 only on NGINX |
 | **Auto-recovery**    | ✅ Implemented        | Containers restart automatically on failure |
